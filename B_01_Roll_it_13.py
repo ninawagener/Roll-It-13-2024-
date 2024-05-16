@@ -16,11 +16,11 @@ def yes_no(question):
         else:
             print("Please enter yes / no")
 
-
+# Displays instructions to user
 def instruction():
     print('''
     
-    **** Instructions ****
+**** Instructions ****
     
 To begin, decide on a score goal (eg: The first one to get a 
 score of 50 wins).
@@ -40,6 +40,26 @@ then you will have 11 points added to your score
     
     ''')
 
+#Checks that users enter an integer
+# that is more than 13
+def int_check():
+
+    while True:
+
+        error = "Please enter an integer that is 13 or more"
+
+        try:
+            response = int(input("Ener an integer: "))
+
+            # checks that the number is more than / equal to 13
+            if response < 13:
+                print(error)
+            else:
+               return response
+
+        except ValueError:
+            print(error)
+
 # Main routine
 print()
 print("🎲🎲 Roll It 13! 🎲🎲")
@@ -51,4 +71,5 @@ want_instructions = yes_no("Do you want to read the instructions?") . lower()
 if want_instructions == "yes":
    instruction()
 
-print("program")
+print()
+target_score = int_check()
